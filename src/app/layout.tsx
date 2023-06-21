@@ -1,6 +1,6 @@
+import { QueryProvider } from "@/lib/queryClient";
 import StyledComponentsRegistry from "@/lib/registry";
 import { Varela_Round } from "next/font/google";
-import { GlobalStyles } from "./globalStyes";
 
 const varelaRound = Varela_Round({ subsets: ["latin"], weight: ["400"] });
 
@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={varelaRound.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <QueryProvider>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </QueryProvider>
       </body>
     </html>
   );

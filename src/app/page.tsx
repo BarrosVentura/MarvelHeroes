@@ -2,12 +2,20 @@
 
 import { useRef } from "react";
 import { HomeWrapper } from "./style";
+import { useMarvelHeroContext } from "@/context/marvelHero";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const { setCurrentHero } = useMarvelHeroContext();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   function handleSearchBar() {
-    console.log(inputRef?.current?.value);
+    const content = inputRef?.current?.value;
+    if (content) {
+      setCurrentHero(content);
+      router.push("/list");
+    }
   }
   return (
     <main>

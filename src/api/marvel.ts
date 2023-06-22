@@ -4,7 +4,7 @@ export function getComicsByHeroName() {
   return api.get("/characters", {
     params: {
       orderBy: "name",
-      name: "iron",
+      nameStartsWith: "iron",
     },
   });
 }

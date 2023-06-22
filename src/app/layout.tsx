@@ -1,3 +1,4 @@
+import { MarvelHeroProvider } from "@/context/marvelHero";
 import { QueryProvider } from "@/lib/queryClient";
 import StyledComponentsRegistry from "@/lib/registry";
 import { Varela_Round } from "next/font/google";
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={varelaRound.className}>
         <QueryProvider>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <MarvelHeroProvider>
+            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          </MarvelHeroProvider>
         </QueryProvider>
       </body>
     </html>

@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: inherit;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   a, button, input {
     transition: all 0.2s;
     outline: none;

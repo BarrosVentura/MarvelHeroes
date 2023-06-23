@@ -28,8 +28,9 @@ export function MarvelHeroProvider({
   }, [hasMounted]);
 
   useEffect(() => {
+    if (currentHero) return;
     setCurrentHero(getItem("currentHero"));
-  }, [hasMounted, setCurrentHero, getItem]);
+  }, [hasMounted, setCurrentHero, getItem, currentHero]);
 
   useEffect(() => {
     if (!currentHero) return;

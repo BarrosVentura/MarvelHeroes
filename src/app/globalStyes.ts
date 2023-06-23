@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
   a, button, input {
     transition: all 0.2s;
     outline: none;
+    border: 1px solid transparent;
 
     &:focus, &:active {
       border: 1px solid ${(props) => props.theme.palette.engineeringOrange};
@@ -31,9 +32,10 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${(props) => props.theme.palette.gunmetal};
     color: ${(props) => props.theme.palette.frenchGray};
+    min-height: 100vh;
   }
 
-  main {
+  main, header {
     max-width: 1440px;
     margin: 0 auto;
     padding-inline: 24px;

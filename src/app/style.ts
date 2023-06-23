@@ -7,7 +7,6 @@ export const HomeWrapper = styled.section`
   justify-content: center;
   gap: 12px;
   padding-block: 24px;
-  height: 100vh;
 
   h1 {
     font-size: 2rem;

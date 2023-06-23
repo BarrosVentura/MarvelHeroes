@@ -1,26 +1,11 @@
 "use client";
 
-import { getComicsByHeroName } from "@/api/marvel";
+import { HeroesComicInterface, getComicsByHeroName } from "@/api/marvel";
 import { useMarvelHeroContext } from "@/context/marvelHero";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { Card, CardsWrapper, Title } from "./style";
 import Link from "next/link";
-
-interface HeroesComicInterface {
-  data: {
-    data: {
-      results: {
-        id: number;
-        name: string;
-        thumbnail: {
-          extension: string;
-          path: string;
-        };
-      }[];
-    };
-  };
-}
 
 export default function List() {
   const { currentHero } = useMarvelHeroContext();

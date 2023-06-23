@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header";
 import { MarvelHeroProvider } from "@/context/marvelHero";
 import { QueryProvider } from "@/lib/queryClient";
 import StyledComponentsRegistry from "@/lib/registry";
@@ -20,7 +21,10 @@ export default function RootLayout({
       <body className={varelaRound.className}>
         <QueryProvider>
           <MarvelHeroProvider>
-            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+            <StyledComponentsRegistry>
+              <Header />
+              {children}
+            </StyledComponentsRegistry>
           </MarvelHeroProvider>
         </QueryProvider>
       </body>

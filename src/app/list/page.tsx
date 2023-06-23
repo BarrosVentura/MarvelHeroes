@@ -3,28 +3,57 @@
 import { getComicsByHeroName } from "@/api/marvel";
 import { useMarvelHeroContext } from "@/context/marvelHero";
 import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+
+interface HeroesComicInterface {
+  data: {
+    data: {
+      results: {
+        id: number;
+        name: string;
+        thumbnail: {
+          extension: string;
+          path: string;
+        };
+      }[];
+    };
+  };
+}
 
 export default function List() {
   const { currentHero } = useMarvelHeroContext();
-  const { data } = useQuery({
+  console.log({ currentHero });
+  const { data, isLoading, isError } = useQuery<HeroesComicInterface>({
     queryKey: ["hero_listing"],
-    queryFn: getComicsByHeroName,
+    queryFn: () => getComicsByHeroName(currentHero ?? ""),
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 * 10,
+    retry: false,
   });
 
-  console.log({ data });
+  if (isError) {
+    return <>ocorreu um erro</>;
+  }
+
+  if (isLoading) {
+    return <>carregando</>;
+  }
 
   return (
     <main>
       <section>
-        <h1>{currentHero}</h1>
         <div>
-          <div>
-            <img src="" alt="" />
-            <p>The Flash, Vol 1</p>
-            <span>Joshua Williamson</span>
-          </div>
+          {data.data.data.results.map((hero) => (
+            <div key={hero.id}>
+              <Image
+                src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+                alt={hero.name}
+                width={200}
+                height={300}
+              />
+              <p>{hero.name}</p>
+            </div>
+          ))}
         </div>
       </section>
     </main>

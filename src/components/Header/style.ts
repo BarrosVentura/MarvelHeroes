@@ -7,6 +7,6 @@ export const HeaderWrapper = styled.header`
   a {
     font-weight: bold;
     font-size: 1.5rem;
-    color: ${(props) => props.theme.palette.frenchGray};
+    color: #c5c3c6ff;
   }
 `;

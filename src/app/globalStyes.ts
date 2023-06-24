@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid transparent;
 
     &:focus, &:active {
-      border: 1px solid ${(props) => props.theme.palette.engineeringOrange};
+      border: 1px solid #bf0603ff;
     }
   }
 
@@ -30,8 +30,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${(props) => props.theme.palette.gunmetal};
-    color: ${(props) => props.theme.palette.frenchGray};
+    background-color: #253031ff;
+    color: #c5c3c6ff;
     min-height: 100vh;
   }
 

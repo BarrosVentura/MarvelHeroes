@@ -10,10 +10,10 @@ export const HomeWrapper = styled.section`
 
   h1 {
     font-size: 2rem;
-    color: ${(props) => props.theme.palette.platinum};
+    color: #dcdcddff;
   }
 
-  div {
+  form {
     margin-top: 36px;
     display: flex;
     gap: 12px;
@@ -21,9 +21,9 @@ export const HomeWrapper = styled.section`
 
   input {
     border-radius: 6px;
-    border: 1px solid ${(props) => props.theme.palette.frenchGray};
-    background-color: ${(props) => props.theme.palette.gunmetal};
-    color: ${(props) => props.theme.palette.frenchGray};
+    border: 1px solid #c5c3c6ff;
+    background-color: #253031ff;
+    color: #c5c3c6ff;
     padding: 6px 12px;
     width: 200px;
   }
@@ -33,8 +33,8 @@ export const HomeWrapper = styled.section`
     padding: 6px 12px;
     border: 1px solid transparent;
     border-radius: 6px;
-    background-color: ${(props) => props.theme.palette.engineeringOrange};
-    color: ${(props) => props.theme.palette.platinum};
+    background-color: #bf0603ff;
+    color: "#dcdcddff";
   }
 
   @media (max-width: 425px) {

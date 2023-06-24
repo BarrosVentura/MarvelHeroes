@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { FormEvent, useRef } from "react";
 import { HomeWrapper } from "./style";
 import { useMarvelHeroContext } from "@/context/marvelHero";
 import { useRouter } from "next/navigation";
@@ -10,7 +10,8 @@ export default function Home() {
   const { setCurrentHero } = useMarvelHeroContext();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  function handleSearchBar() {
+  function handleSearchBar(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     const content = inputRef?.current?.value;
     if (content) {
       setCurrentHero(content);

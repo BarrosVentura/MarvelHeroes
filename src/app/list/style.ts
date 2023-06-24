@@ -16,7 +16,7 @@ export const CardsWrapper = styled.div`
 export const Card = styled.div`
   width: 200px;
   p {
-    color: ${(props) => props.theme.palette.engineeringOrange};
+    color: #bf0603ff;
     margin-top: 8px;
     font-weight: bold;
     font-size: 1.2rem;

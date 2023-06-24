@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Olá! 👋
 
-## Getting Started
+Esse projeto foi feito com NextJS 13, Styled Components, React Query e Axios, continue lendo para mais detalhes!
 
-First, run the development server:
+## Como Rodar  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Adicione um arquivo .env.local no root da aplicação e coloque sua PUBLIC_KEY da Marvel com o nome de NEXT_PUBLIC_MARVEL_API_PUBLIC_KEY.
+- Agora é so rodar `yarn` e `yarn dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura da aplicação  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### api/  
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Aqui fica o axios já iniciado com as funções de chamada para a api da marvel, hoje só temos duas funções que é a de listagem baseado em um texto e a do herói com base em seu id
 
-## Learn More
+### app/
 
-To learn more about Next.js, take a look at the following resources:
+Pasta base do NextJS 13 com todas as rotas, dentro dele cada pasta será uma rota, então temos `root`, `list` e `hero` com uma rota dinamica que recebe o id do herói.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Aqui a aplicação ganha 3 contextos que vão cuidar das lógicas de negócio que são a de estilos do Styled components, a de cache com React Query e o Context com o dado que o usuário pesquisou para ser utilizado em outra tela.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Utilizei o context para o dado do usuário somente para ficar mais simples de manipular ele e não ter em sua rota a pesquisa que o usuário deseja fazer, assim caso ele não tenha nada eu só redireciono de volta para a primeira tela.
 
-## Deploy on Vercel
+### components/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Aqui seria uma pasta mais geral, mas por não ter muitas utilizações eu preferi trazer somente o componente Header para ficar mais simples de manipular ele com os estilos do Styled Components por que o arquivo `layout` acaba sendo um server component.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### context/
+
+Como comentado antes, aqui deixei a lógica para manter o dado pesquisado pelo usuário vivo durante a aplicação.
+
+### hooks/
+
+Aqui ficam todos os hooks que podem ser usados de maneira geral, nesse momento ele contém somente o hook de `sessionStorage` para que o dado de pesquisa continue vivo mesmo com o recarregar da página.
+
+### lib/
+
+Configurações mais gerais de cada um dos serviços que o app usa, como a api que ja recebe o base url da api da marvel junto com a public key, o queryClient que cria o contexto e repassa para o projeto e o registry do styled components para que ele consiga trazer o conteúdo dos estilos, mesmo que de maneira não tão otimizada, para o lado do server também.

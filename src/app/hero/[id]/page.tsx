@@ -14,7 +14,7 @@ export default function HeroPage() {
     refetchOnWindowFocus: false,
     retry: false,
   });
-  const { id, name, description, series, thumbnail } =
+  const { name, description, series, thumbnail } =
     data?.data.data.results.at(0) || {};
 
   return (

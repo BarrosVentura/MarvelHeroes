@@ -22,10 +22,10 @@ export default function Home() {
       <HomeWrapper>
         <h1>Marvel Heroes</h1>
         <p>Pesquisa pelo nome de um personagem da marvel!</p>
-        <div>
+        <form onSubmit={handleSearchBar}>
           <input ref={inputRef} type="text" id="searchbar" />
-          <button onClick={handleSearchBar}>pesquisar</button>
-        </div>
+          <button type="submit">pesquisar</button>
+        </form>
       </HomeWrapper>
     </main>
   );

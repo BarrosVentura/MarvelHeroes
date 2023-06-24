@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Marvel Heroes List",
-  description: "Site para desafio de entrevista",
+  description: "Site para desafio",
 };
 
 export default function RootLayout({

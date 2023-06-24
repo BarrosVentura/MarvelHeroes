@@ -7,8 +7,8 @@ import { Varela_Round } from "next/font/google";
 const varelaRound = Varela_Round({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata = {
-  title: "Marvel Comics",
-  description: "Site para desafio de entrevista",
+  title: "Marvel Heroes",
+  description: "Site para desafio",
 };
 
 export default function RootLayout({

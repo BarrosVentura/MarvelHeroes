@@ -1,3 +1,3 @@
 export default function Loading() {
-  return <div>Carrgando lista...</div>;
+  return <div>Carregando lista...</div>;
 }

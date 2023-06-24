@@ -9,7 +9,6 @@ import Link from "next/link";
 
 export default function List() {
   const { currentHero } = useMarvelHeroContext();
-  console.log({ currentHero });
   const { data, isLoading, isError } = useQuery<HeroesComicInterface>({
     queryKey: ["hero_listing"],
     queryFn: () => getComicsByHeroName(currentHero ?? ""),
